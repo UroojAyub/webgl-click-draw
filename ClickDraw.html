@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Click to Draw</title>
+</head>
+
+<body onload="main()">
+	<canvas id="glCanvas" width="500" height="500">
+		Please use a browser that supports "canvas"
+	</canvas>
+
+	<script id="vertex-shader" type="x-shader/x-vertex">		
+		attribute vec4 a_Position;
+		void main()
+		{
+		    gl_Position = a_Position;
+			gl_PointSize = 8.0;
+		}
+	</script>
+
+	<script id="fragment-shader" type="x-shader/x-fragment">
+		precision mediump float;
+		uniform vec4 u_FragColor;
+		void main()
+		{
+		    gl_FragColor = u_FragColor;
+		}
+	</script>
+
+	<script src="lib/webgl-utils.js"></script>
+	<script src="lib/webgl-debug.js"></script>
+	<script src="lib/cuon-utils.js"></script>
+	<script src="lib/initShaders.js"></script>
+	<script src="lib/flatten.js"></script>
+	<script src="ClickDraw.js"></script>
+</body>
+
+</html>
